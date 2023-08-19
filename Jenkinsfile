@@ -28,5 +28,14 @@ environment {
                 }
             }
         }
+
+       stage("SonarQube Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true
+                }
+            }
+        }
+
     }
 }

@@ -4,13 +4,13 @@ pipeline {
             label 'maven'
         }
     }
-// environment {
-//     PATH = "/opt/apache-maven-3.9.2/bin:$PATH"
-// }
+environment {
+    PATH = "/opt/apache-maven-3.9.4/bin:$PATH"
+}
     stages {
         stage("build"){
             steps {
-                echo 'Build Successful'
+                sh 'mvn clean deploy'
             }
         }
 
